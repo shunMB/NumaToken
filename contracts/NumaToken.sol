@@ -49,11 +49,11 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		return true;
 	}
 
-    function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
-    	require(balances[msg.sender] < _value);
-    	transfer(_to, _value);
-    	return true;
-    }
+	function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
+		require(balances[msg.sender] < _value);
+		transfer(_to, _value);
+		return true;
+	}
 
 	function sendTokenAndMessage(address _to, uint256 _value, string memory _calldata) public returns (bool) {
 		require(balances[msg.sender] < _value);
