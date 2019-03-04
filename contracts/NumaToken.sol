@@ -22,19 +22,26 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 	using SafeMath for uint8;
 	using SafeMath for uint256;
 
-	uint8 public constant DECIMALS = 18;
+	uint8 private constant DECIMALS = 18;
 	uint256 private constant INITIAL_SUPPLY = 100000;
 
-	mapping(address => uint) balances;
-	mapping(address => string) public  receivedMessage;
-	mapping(address => string) public  sentMessage;
+	address private owner_;
+	address[] usersAddresses;
+
+	mapping(address => uint256) balances;
+	mapping(address => string) public receivedMessage;
+	mapping(address => string) public sentMessage;
 
 	constructor () public ERC20Detailed("NumaToken", "NMT", DECIMALS){
-         _mint(msg.sender, INITIAL_SUPPLY);
+		_mint(msg.sender, INITIAL_SUPPLY);
+		owner_ = msg.sender;
 	}
-	
-	function mint(uint256 _mintAmount) public onlyOwner returns (bool) {
-		_mint(msg.sender, _mintAmount);
+
+	function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
+		require(balances[msg.sender] < _value);
+		transfer(_to, _value);
+		balances[_to] += _value;
+		usersAddresses.push(_to);
 		return true;
 	}
 
@@ -43,21 +50,26 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		return true;
 	}
 
-	function burnTargetPersonAmount(address _target, uint256 _value) public onlyOwner returns (bool){
+	function burnTargetUserAmount(address _target, uint256 _value) public onlyOwner returns (bool){
 		require(balances[_target] >= _value);
 		_burn(_target, _value);
+		balances[_target] -= _value;
 		return true;
 	}
 
-	function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
-		require(balances[msg.sender] < _value);
-		transfer(_to, _value);
-		return true;
+	function getOwner() public view returns (address) {
+        return owner_;
+    }
+
+	function getUsersAddresses() public view returns(address[] memory) {
+		return usersAddresses;
 	}
 
 	function sendTokenAndMessage(address _to, uint256 _value, string memory _calldata) public returns (bool) {
 		require(balances[msg.sender] < _value);
 		transfer(_to, _value);
+		balances[msg.sender] -= _value;
+		balances[_to] += _value;
 		sentMessage[msg.sender] = _calldata;
 		receivedMessage[_to] = _calldata;
 		return true;
