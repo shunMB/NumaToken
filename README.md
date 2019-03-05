@@ -28,8 +28,8 @@ $ truffle console --network < your using network >
 ```
 ### examples
 ```
-truffle(development)> let instance = await NumaToken.deployed()
-truffle(development)> let accounts = await web3.eth.getAccounts()
+truffle(development)> const instance = await NumaToken.deployed()
+truffle(development)> const accounts = await web3.eth.getAccounts()
 truffle(development)> instance.airdrop(accounts[1], XXX)    //accounts[0] is contract creater address
 truffle(development)> instance.balanceOf(accounts[1])
 <BN: XXX>
