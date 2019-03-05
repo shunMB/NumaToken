@@ -95,15 +95,6 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
         return owner_;
     }
 
-	function getUsersAddresses() public view returns(address[] memory) {
-		/**
-		* @title getUsersAddresses
-		* @notice ユーザーのアドレスが入った配列の取得(airdrop内で追加される)
-		* @return usersAddresses address[]: 全ユーザーのアドレスが入った配列
-		*/	
-		return usersAddresses;
-	}
-
 	function sendTokenAndMessage(address _to, uint256 _value, string memory _calldata) public returns (bool) {
 		/**
 		* @title sendTokenAndMessage

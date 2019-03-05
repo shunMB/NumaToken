@@ -349,7 +349,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 42,
-        "sourceUnit": 938,
+        "sourceUnit": 978,
         "src": "34:79:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -363,10 +363,10 @@
               "id": 3,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 937,
+              "referencedDeclaration": 977,
               "src": "311:5:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$937",
+                "typeIdentifier": "t_contract$_ERC20_$977",
                 "typeString": "contract ERC20"
               }
             },
@@ -376,8 +376,8 @@
           }
         ],
         "contractDependencies": [
-          937,
-          1006
+          977,
+          1046
         ],
         "contractKind": "contract",
         "documentation": "* @title Numa token interface, an extension of ERC20 token standard \n\n* @dev This is Interface for NumaToken.sol, having airdop and message send/fetch methods.",
@@ -385,8 +385,8 @@
         "id": 41,
         "linearizedBaseContracts": [
           41,
-          937,
-          1006
+          977,
+          1046
         ],
         "name": "INumaToken",
         "nodeType": "ContractDefinition",
@@ -861,7 +861,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 42,
-        "sourceUnit": 938,
+        "sourceUnit": 978,
         "src": "34:79:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -875,10 +875,10 @@
               "id": 3,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 937,
+              "referencedDeclaration": 977,
               "src": "311:5:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$937",
+                "typeIdentifier": "t_contract$_ERC20_$977",
                 "typeString": "contract ERC20"
               }
             },
@@ -888,8 +888,8 @@
           }
         ],
         "contractDependencies": [
-          937,
-          1006
+          977,
+          1046
         ],
         "contractKind": "contract",
         "documentation": "* @title Numa token interface, an extension of ERC20 token standard \n\n* @dev This is Interface for NumaToken.sol, having airdop and message send/fetch methods.",
@@ -897,8 +897,8 @@
         "id": 41,
         "linearizedBaseContracts": [
           41,
-          937,
-          1006
+          977,
+          1046
         ],
         "name": "INumaToken",
         "nodeType": "ContractDefinition",
@@ -1349,7 +1349,7 @@
   },
   "networks": {},
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-03-04T03:23:04.568Z",
+  "updatedAt": "2019-03-05T13:26:38.119Z",
   "devdoc": {
     "details": "This is Interface for NumaToken.sol, having airdop and message send/fetch methods.",
     "methods": {
