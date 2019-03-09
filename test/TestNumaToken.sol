@@ -81,6 +81,13 @@ contract TestNumaToken {
 		Assert.equal(nmt.balanceOf(targetUser), expected, "Owner must execute burnTargetUserAmount function."); 	
 	}
 
+	function testUserCanSendTokenToOwner() public {
+		NumaToken nmt = new NumaToken();
+		uint256 sendTokenAmount = 100;
+		bool isSendTokenToOwnerSucceeded = nmt.sendTokenToOwner(sendTokenAmount);
+		Assert.equal(isSendTokenToOwnerSucceeded, true, "User must send tokens to owner.");
+	}
+
 	function testUserCanSendTokensAndMessageWithUserAddresses() public {
 		NumaToken nmt = new NumaToken();
 		address receiver = 0x3B1e875e66c84186643f06Ff43aE4CfCC9DCA324;

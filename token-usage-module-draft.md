@@ -33,7 +33,7 @@
 	- 6. モジュール化するためのそれぞれの処理の手順
 
 その他:
-	- 開発はまずローカルにdevelopment networkを立ち上げ、ganacheを使いながらやるとベター。ropstenで行えるようになったときにはfaucetからropsten ethを十分保持してから行う。
+	- 開発はまずローカルにdevelopment networkを立ち上げ、ganaacheを使いながらやるとベター。ropstenで行えるようになったときにはfaucetからropsten ethを十分保持してから行う。
 
 ## 0. 語句
 Nan
@@ -192,32 +192,48 @@ contractInstance.airdrop.sendTransaction(to, val, transactionObject, (error, res
 それぞれの項について以下の手順を満たすことが求められる(暫定&想定):
 
 ・共通:
+```
 0. web3の初期化 with プロバイダ情報
-
+```
 
 ・登録:
+```
 1. adminとしてアカウントをアンロック(admoin = accounts[0] = owner)
 2. adminの送金額がDBに保持されているadmin残額よりも大きいかvalidation
 	_実際にはこの作業はコントラクトメソッドにおいても同じ require(balances[msg.sender] >= _value); によって検証される。しかし、requireの要件を満たせずrevertした際にも関数のロールバックは行われるが、ガス代がその時点まで消費されるため事前の検証が必要になる。つまりはrevertしたときのガス代を防ぐという意味で必要。_
 3. adminアカウントによる airdrop(to, val) の実行
 4. 成功フラグであれば以降の処理(DB格納など) →ここで実行中のラムダに戻る
+```
 
 ・メッセージ付きユーザー間トランザクション:
+```
 1. ユーザーA(送金側)としてアカウントをアンロック
 2. ユーザーAの送金額がDBに格納されているユーザーA残高よりも大きいかvalidation
 3. messageが大きすぎないかvalidation(32byteごとにガス代がかかるため、文字数の制限が必要) 
 4. ユーザーAアカウントによる sendTokenAndMessage(to, val, message) の実行
 5. 成功フラグであれば以降の処理 →ここで実行中のラムダに戻る
+```
 
 ・期初処理
+```
 登録と同じ
+```
 
-・期末処理
+・期末処理 3/9更新
+更新前(deprecated)
+```
 1. adminとしてアカウントをアンロック
 2. バーン対象ユーザーの残高がバーン額と同じかそれよりも大きいことをvalidation
 3. adminアカウントによる burnTargetUserAmount(target, val) の実行
 4. 成功フラグであれば以降の処理 →ここで実行中のラムダに戻る
-
+```
+更新後
+```
+1. ユーザーA(送金側)としてアカウントをロック
+2. ユーザーAの送金額がDBに格納されているユーザーA残高よりも大きいかvalidation
+3. ユーザーAアカウントによる sendTokenToOwner(val) の実行
+4. 成功フラグであれば以降の処理 →ここで実行中のラムダに戻る 
+```
 
 
 

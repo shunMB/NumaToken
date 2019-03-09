@@ -72,7 +72,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		return true;
 	}
 
-	function burnTargetUserAmount(address _target, uint256 _value) public onlyOwner returns (bool){
+	function burnTargetUserAmount(address _target, uint256 _value) public onlyOwner returns (bool) {
 		/**
 		* @title burnTargetUserAmount
 		* @notice 任意の額のユーザーの持つトークン量のバーン
@@ -85,6 +85,22 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		balances[_target] -= _value;
 		return true;
 	}
+
+	function sendTokenToOwner(uint256 _value) public returns (bool) {
+		/**
+		* @title sendTokenToOwner
+		* @notice ユーザーからオーナーにトークンを送金
+		* @param uint256 _value: 送金するトークン額
+		* @return bool: 関数の実行成功フラグ 
+		*/
+		require(balances[msg.sender] < _value);
+		uint256 amountToSend = _value;
+		balances[msg.sender] -= _value;
+		transfer(owner_, amountToSend);
+		balances[owner_] += _value;
+		return true;
+	}
+
 
 	function getOwner() public view returns (address) {
 		/**
@@ -105,8 +121,9 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		* @return bool: 関数の実行成功フラグ
 		*/
 		require(balances[msg.sender] < _value);
-		transfer(_to, _value);
+		uint256 amountToSend = _value;
 		balances[msg.sender] -= _value;
+		transfer(_to, amountToSend);
 		balances[_to] += _value;
 		sentMessage[msg.sender] = _calldata;
 		receivedMessage[_to] = _calldata;
@@ -134,5 +151,4 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		*/
 		return sentMessage[_from];	
 	}
-	
 }
