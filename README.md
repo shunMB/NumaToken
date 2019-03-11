@@ -36,31 +36,32 @@ truffle(development)> instance.balanceOf(accounts[1])
 ```
 
 ## Test
+You have to setup ganache in testing.
 ```
 $ truffle test
 Using network 'development'.
 
-Compiling ./contracts/NumaToken.sol...
 Compiling ./test/TestNumaToken.sol...
 
 
   TestNumaToken
-    ✓ testInitialBalanceUsingDeployedContract (52ms)
-    ✓ testInitialBalanceWithNewNumaTokens (109ms)
-    ✓ testOwnerCanAirdropWithUserAddress (102ms)
-    ✓ testUserCanHaveTokensAfterAirdrop (68ms)
-    ✓ testOwnerCanBurnTokens (94ms)
-    ✓ testTokensOfOwnerAfterBurn (72ms)
-    ✓ testOwnerCanBurnTokensOfTargetUserWithUserAddress (98ms)
-    ✓ testTargetUserPossessionReducedAfterBurn (91ms)
-    ✓ testUserCanSendTokensAndMessageWithUserAddresses (97ms)
-    ✓ testTokensOfSpenderCanBeSubstructedValueAmount (118ms)
-    ✓ testTokensOfReceiverCanBeAddedValueAmount (110ms)
-    ✓ testReceivedMessageWithUserID (80ms)
-    ✓ testSentMessageWithUserID (108ms)
+    ✓ testInitialBalanceUsingDeployedContract (55ms)
+    ✓ testInitialBalanceWithNewNumaTokens (77ms)
+    ✓ testOwnerCanAirdropWithUserAddress (108ms)
+    ✓ testUserCanHaveTokensAfterAirdrop (81ms)
+    ✓ testOwnerCanBurnTokens (74ms)
+    ✓ testTokensOfOwnerAfterBurn (80ms)
+    ✓ testOwnerCanBurnTokensOfTargetUserWithUserAddress (88ms)
+    ✓ testTargetUserPossessionReducedAfterBurn (86ms)
+    ✓ testUserCanSendTokenToOwner (70ms)
+    ✓ testUserCanSendTokensAndMessageWithUserAddresses (80ms)
+    ✓ testTokensOfSpenderCanBeSubstructedValueAmount (111ms)
+    ✓ testTokensOfReceiverCanBeAddedValueAmount (71ms)
+    ✓ testReceivedMessageWithUserID (97ms)
+    ✓ testSentMessageWithUserID (100ms)
 
 
-  13 passing (8s)
+  14 passing (8s)
 
 ```
 
