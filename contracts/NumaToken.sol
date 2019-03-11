@@ -55,7 +55,9 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		* @return bool: 関数の実行成功フラグ
 		*/		
 		require(balances[msg.sender] < _value);
-		transfer(_to, _value);
+		uint256 amountToSend = _value;
+		balances[msg.sender] -= _value;
+		transfer(_to, amountToSend);
 		balances[_to] += _value;
 		usersAddresses.push(_to);
 		return true;
