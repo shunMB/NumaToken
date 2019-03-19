@@ -47,6 +47,30 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		balances[owner_] = balances[owner_].add(INITIAL_SUPPLY);
 	}
 
+	function getOwner() public view returns (address) {
+		/**
+		* @title getOwner
+		* @notice オーナーのアドレスを取得
+		* @return owner_ address: オーナーのアドレス値
+		*/	
+        return owner_;
+    }	
+
+    function kill() public onlyOwner returns (bool) {
+    	/**
+    	* @title kill
+    	* @notice コントラクトをkillする
+    	* @return bool: 関数の実行成功フラグ
+    	*/
+		selfdestruct(msg.sender);    	
+    	return true;
+    }
+
+function kill() public onlyOwner returns (bool) {
+	selfdestruct(msg.sender);    	
+    return true;
+}
+
 	function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
 		/**
 		* @title airdrop
@@ -103,16 +127,6 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		balances[owner_] += _value;
 		return true;
 	}
-
-
-	function getOwner() public view returns (address) {
-		/**
-		* @title getOwner
-		* @notice オーナーのアドレスを取得
-		* @return owner_ address: オーナーのアドレス値
-		*/	
-        return owner_;
-    }
 
 	function sendTokenAndMessage(address _to, uint256 _value, string memory _calldata) public returns (bool) {
 		/**
