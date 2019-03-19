@@ -26,7 +26,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 	uint8 private constant DECIMALS = 18;
 	uint256 private constant INITIAL_SUPPLY = 100000;
 
-	address private owner_;
+	address payable public owner_;
 	address[] usersAddresses;
 
 	mapping(address => uint256) balances;
@@ -56,20 +56,13 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
         return owner_;
     }	
 
-    function kill() public onlyOwner returns (bool) {
+    function kill() public onlyOwner {
     	/**
     	* @title kill
     	* @notice コントラクトをkillする
-    	* @return bool: 関数の実行成功フラグ
     	*/
-		selfdestruct(msg.sender);    	
-    	return true;
+    	if(msg.sender == owner_) selfdestruct(owner_);
     }
-
-function kill() public onlyOwner returns (bool) {
-	selfdestruct(msg.sender);    	
-    return true;
-}
 
 	function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
 		/**

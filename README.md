@@ -45,23 +45,24 @@ Compiling ./test/TestNumaToken.sol...
 
 
   TestNumaToken
-    ✓ testInitialBalanceUsingDeployedContract (55ms)
-    ✓ testInitialBalanceWithNewNumaTokens (77ms)
-    ✓ testOwnerCanAirdropWithUserAddress (108ms)
-    ✓ testUserCanHaveTokensAfterAirdrop (81ms)
-    ✓ testOwnerCanBurnTokens (74ms)
-    ✓ testTokensOfOwnerAfterBurn (80ms)
-    ✓ testOwnerCanBurnTokensOfTargetUserWithUserAddress (88ms)
-    ✓ testTargetUserPossessionReducedAfterBurn (86ms)
-    ✓ testUserCanSendTokenToOwner (70ms)
-    ✓ testUserCanSendTokensAndMessageWithUserAddresses (80ms)
-    ✓ testTokensOfSpenderCanBeSubstructedValueAmount (111ms)
-    ✓ testTokensOfReceiverCanBeAddedValueAmount (71ms)
-    ✓ testReceivedMessageWithUserID (97ms)
-    ✓ testSentMessageWithUserID (100ms)
+    ✓ testInitialBalanceUsingDeployedContract (41ms)
+    ✓ testInitialBalanceWithNewNumaTokens (73ms)
+    ✓ testOwnerCanAirdropWithUserAddress (61ms)
+    ✓ testUserCanHaveTokensAfterAirdrop (60ms)
+    ✓ testOwnerCanBurnTokens (48ms)
+    ✓ testTokensOfOwnerAfterBurn (51ms)
+    ✓ testOwnerCanBurnTokensOfTargetUserWithUserAddress (61ms)
+    ✓ testTargetUserPossessionReducedAfterBurn (61ms)
+    ✓ testUserCanSendTokenToOwner (53ms)
+    ✓ testUserCanSendTokensAndMessageWithUserAddresses (59ms)
+    ✓ testTokensOfSpenderCanBeSubstructedValueAmount (61ms)
+    ✓ testTokensOfReceiverCanBeAddedValueAmount (59ms)
+    ✓ testReceivedMessageWithUserID (81ms)
+    ✓ testSentMessageWithUserID (71ms)
+    ✓ testOwnerCanKillContract (58ms)
 
 
-  14 passing (8s)
+  15 passing (7s)
 
 ```
 
