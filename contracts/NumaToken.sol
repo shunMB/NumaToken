@@ -24,7 +24,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 	using SafeMath for uint256;
 
 	uint8 private constant DECIMALS = 18;
-	uint256 private constant INITIAL_SUPPLY = 100000;
+	uint256 private constant INITIAL_SUPPLY = 50000e18;
 
 	address payable public owner_;
 	address[] usersAddresses;
@@ -55,6 +55,14 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		*/	
         return owner_;
     }	
+
+    function getUserTokenBalance(address _target) public view returns (uint256) {
+    	/**
+    	* @title getUserTokenBalance
+    	* @notice ユーザーのトークン残高を取得する
+    	*/
+    	return balances[_target];
+    }
 
     function kill() public onlyOwner {
     	/**

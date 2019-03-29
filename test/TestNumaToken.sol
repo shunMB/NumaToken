@@ -16,14 +16,14 @@ contract TestNumaToken {
 
 	function testInitialBalanceUsingDeployedContract() public {
 		NumaToken nmt = NumaToken(DeployedAddresses.NumaToken());
-		uint256 expected = 100000;
+		uint256 expected = 50000000000000000000000;
 		Assert.equal(nmt.balanceOf(tx.origin), expected, "Owner must have 10000 NumaToken initially.");
 	}
 
 	function testInitialBalanceWithNewNumaTokens() public {
 		NumaToken nmt = new NumaToken();
 		address owner = nmt.getOwner();
-		uint256 expected = 100000;
+		uint256 expected = 50000000000000000000000;
 		Assert.equal(nmt.balanceOf(owner), expected, "Owner must have 10000 NumaToken initially.");
 	}
 
@@ -33,6 +33,16 @@ contract TestNumaToken {
 		uint256 airdropAmount = 1000;
 		bool isAirdropSucceeded = nmt.airdrop(userAddress, airdropAmount);
 		Assert.equal(isAirdropSucceeded, true, "Owner must execute airdrop function.");
+	}
+
+	function testCanGetUserTokenBalance() public {
+		NumaToken nmt = new NumaToken();
+		address userAddress = 0x6417803bB3310b900264E965ce803209EfF3f856;
+		uint256 airdropAmount = 1000;
+		nmt.airdrop(userAddress, airdropAmount);
+		uint256 expected = 1000;
+		uint256 userBalance = nmt.getUserTokenBalance(userAddress);
+		Assert.equal(userBalance, expected, "User token balance must be gotten by getUserTokenBalance function.");
 	}
 
 	function testUserCanHaveTokensAfterAirdrop() public {
@@ -55,7 +65,7 @@ contract TestNumaToken {
 		NumaToken nmt = new NumaToken();
 		uint256 burnAmount = 1000;
 		nmt.burn(burnAmount);
-		uint256 expected = 99000;
+		uint256 expected = 49999999999999999999000;
 		address owner = nmt.getOwner();
 		Assert.equal(nmt.balanceOf(owner), expected,  "Owner must burn total token amount with specified value.");
 	}
@@ -100,7 +110,7 @@ contract TestNumaToken {
 		NumaToken nmt = new NumaToken();
 		address receiver = 0x294efe048A5B9f2d09DA0c6dbCe9924a325009C8;
 		uint256 sendTokenAmount = 100;
-		uint256 expected = 99900;
+		uint256 expected = 49999999999999999999900;
 		address owner = nmt.getOwner();
 		nmt.sendTokenAndMessage(receiver, sendTokenAmount, "Thanks!");
 		Assert.equal(nmt.balanceOf(owner), expected, "Token amount of spender must be reduced for tokens spender sent.");
