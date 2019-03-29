@@ -67,4 +67,4 @@ Compiling ./test/TestNumaToken.sol...
 ```
 
 ## See EtherScan(ropsten)
-https://ropsten.etherscan.io/token/0xD825cF552C59f9D309C4f04Fa4c6f84e052f4421
+https://ropsten.etherscan.io/token/0x6F6b5721F9514061f6a89a113A9F1261718e7270
