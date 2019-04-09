@@ -24,7 +24,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 	using SafeMath for uint256;
 
 	uint8 private constant DECIMALS = 18;
-	uint256 private constant INITIAL_SUPPLY = 50000e18;
+	uint256 private constant INITIAL_SUPPLY = 500000e18;
 
 	address payable public owner_;
 	address[] usersAddresses;

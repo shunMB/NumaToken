@@ -16,14 +16,14 @@ contract TestNumaToken {
 
 	function testInitialBalanceUsingDeployedContract() public {
 		NumaToken nmt = NumaToken(DeployedAddresses.NumaToken());
-		uint256 expected = 50000000000000000000000;
+		uint256 expected = 500000000000000000000000;
 		Assert.equal(nmt.balanceOf(tx.origin), expected, "Owner must have 10000 NumaToken initially.");
 	}
 
 	function testInitialBalanceWithNewNumaTokens() public {
 		NumaToken nmt = new NumaToken();
 		address owner = nmt.getOwner();
-		uint256 expected = 50000000000000000000000;
+		uint256 expected = 500000000000000000000000;
 		Assert.equal(nmt.balanceOf(owner), expected, "Owner must have 10000 NumaToken initially.");
 	}
 
@@ -65,7 +65,7 @@ contract TestNumaToken {
 		NumaToken nmt = new NumaToken();
 		uint256 burnAmount = 1000;
 		nmt.burn(burnAmount);
-		uint256 expected = 49999999999999999999000;
+		uint256 expected = 499999999999999999999000;
 		address owner = nmt.getOwner();
 		Assert.equal(nmt.balanceOf(owner), expected,  "Owner must burn total token amount with specified value.");
 	}
@@ -110,7 +110,7 @@ contract TestNumaToken {
 		NumaToken nmt = new NumaToken();
 		address receiver = 0x294efe048A5B9f2d09DA0c6dbCe9924a325009C8;
 		uint256 sendTokenAmount = 100;
-		uint256 expected = 49999999999999999999900;
+		uint256 expected = 499999999999999999999900;
 		address owner = nmt.getOwner();
 		nmt.sendTokenAndMessage(receiver, sendTokenAmount, "Thanks!");
 		Assert.equal(nmt.balanceOf(owner), expected, "Token amount of spender must be reduced for tokens spender sent.");
