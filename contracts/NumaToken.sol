@@ -80,7 +80,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		* @param uint256 _value: 配布額
 		* @return bool: 関数の実行成功フラグ
 		*/		
-		require(balances[msg.sender] >= _value);
+		require(balances[msg.sender] > _value);
 		uint256 amountToSend = _value;
 		balances[msg.sender] -= _value;
 		transfer(_to, amountToSend);
@@ -108,7 +108,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		* @param uint256 _burnAmount: バーンする額
 		* @return bool: 関数の実行成功フラグ
 		*/	
-		require(balances[_target] >= _value);
+		require(balances[_target] > _value);
 		_burn(_target, _value);
 		balances[_target] -= _value;
 		return true;
@@ -121,7 +121,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		* @param uint256 _value: 送金するトークン額
 		* @return bool: 関数の実行成功フラグ 
 		*/
-		require(balances[msg.sender] >= _value);
+		require(balances[msg.sender] > _value);
 		uint256 amountToSend = _value;
 		balances[msg.sender] -= _value;
 		transfer(owner_, amountToSend);
@@ -138,7 +138,7 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 		* @param string memory _calldata: メッセージ
 		* @return bool: 関数の実行成功フラグ
 		*/
-		require(balances[msg.sender] >= _value);
+		require(balances[msg.sender] > _value);
 		uint256 amountToSend = _value;
 		balances[msg.sender] -= _value;
 		transfer(_to, amountToSend);
