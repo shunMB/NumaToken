@@ -33,13 +33,13 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
 	mapping(address => string) public receivedMessage;
 	mapping(address => string) public sentMessage;
 
-	constructor () public ERC20Detailed("NumaToken", "NMT", DECIMALS){
+	constructor () public ERC20Detailed("NumaToken", "NUMA", DECIMALS){
 		/**
 		* @title constructor
 		* @notice ERC20Detailedを用いたインスタンスの初期化とそれに伴うオーナーへのミント。
 		*         また、ownerにデプロイしたアドレスを割り当てる。
 		* @param "NumaToken": トークンの名前
-		* @param "NMT": 銘柄コード
+		* @param "NUMA": 銘柄コード
 		* @param DECIMALS: トークンが小数点以下何桁で割れるかの情報
 		*/
 		_mint(msg.sender, INITIAL_SUPPLY);
