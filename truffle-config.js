@@ -23,7 +23,6 @@ module.exports = {
       },
       network_id: 3,
       gas: 8000000,
-      gasPrice: web3Utils.toWei("50", "gwei")
     }
   },
   compilers: {
