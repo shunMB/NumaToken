@@ -8873,8 +8873,8 @@
         }
       },
       "links": {},
-      "address": "0x232D94425eAC8ee1fBd21eB7a961a4AC1174B976",
-      "transactionHash": "0xcc2c5548dbc3408af90ed35515a581bb82e0f9ec57563e6c50314fff9610e40d"
+      "address": "0x85A3A21f9C13D2Ff67AF0AdC21Db9354CCE77C15",
+      "transactionHash": "0xedba515b5f2fc2d631457b2cb558646378184131438af270d199efe4bff2349e"
     },
     "5777": {
       "events": {
@@ -8949,7 +8949,7 @@
     }
   },
   "schemaVersion": "3.0.2",
-  "updatedAt": "2019-04-12T05:06:58.237Z",
+  "updatedAt": "2019-04-12T05:19:21.619Z",
   "devdoc": {
     "author": "shunMB",
     "details": "IERC20をインターフェースに持つERC20をベースとしたNumaトークンの実装TODO: リファクタリング",
