@@ -148,13 +148,13 @@ contract TestNumaToken {
 		Assert.equal(sentMessage, expected, "Message spender sent must can be received with spender address.");
 	}
 
-	function testOwnerCanKillContract() public {
-		NumaToken nmt = new NumaToken();
-		address userAddress = 0x6417803bB3310b900264E965ce803209EfF3f856;	
-		uint256 airdropAmount = 1000;
-		uint256 expected = nmt.balanceOf(tx.origin);
-		nmt.airdrop(userAddress, airdropAmount);
-		nmt.kill();
-		Assert.equal(nmt.balanceOf(tx.origin), expected, "Owner must kill contract with selfdestruct.");
-	}
+    function testOwnerCanKillContract() public {
+        NumaToken nmt = new NumaToken();
+        address userAddress = 0x6417803bB3310b900264E965ce803209EfF3f856;    
+        uint256 airdropAmount = 1000;
+        uint256 expected = nmt.balanceOf(tx.origin);
+        nmt.airdrop(userAddress, airdropAmount);
+        nmt.kill();
+        Assert.equal(nmt.balanceOf(tx.origin), expected, "Owner must kill contract with selfdestruct.");
+    }
 }

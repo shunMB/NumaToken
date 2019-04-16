@@ -65,11 +65,11 @@ contract NumaToken is ERC20, ERC20Detailed, Ownable {
     }
 
     function kill() public onlyOwner {
-    	/**
-    	* @title kill
-    	* @notice コントラクトをkillする
-    	*/
-    	if(msg.sender == owner_) selfdestruct(owner_);
+        /**
+        * @title kill
+        * @notice コントラクトをkillする
+        */
+        if(msg.sender == owner_) selfdestruct(owner_);
     }
 
 	function airdrop(address _to, uint256 _value) public onlyOwner returns (bool) {
